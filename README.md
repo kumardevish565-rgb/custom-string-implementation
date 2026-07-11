@@ -27,9 +27,9 @@ Both files include their own built-in high-resolution benchmarking routines insi
 To evaluate the efficiency of both custom architectures, the implementations were benchmarked against the official standard library (`std::string`) over 100,000+ operations. 
 
 ### Deep Copying / Assignment Operator Results (Compiled with `-O2`)
-*   **Modern C++ Version (`cpp_string.cpp`)**: 0.62874 ms
-*   **Standard Library (`std::string`)**: 1.44418 ms
-*   **C-Style Version (`c_string.cpp`)**: 1.47561 ms
+*   Modern C++ Version (cpp_string.cpp): ~0.66 ms (Average)
+*   C-Style Version (c_string.cpp): ~0.85 ms (Average)
+*   Standard Library (std::string): ~2.13 ms (Average
 
 ### Key Findings
 *   **The Power of `std::copy`:** When compiled with optimizations (`-O2`), the modern C++ implementation performed the fastest. Because it tracks string length explicitly, the compiler optimizes `std::copy` into a raw hardware-level block memory transfer.
